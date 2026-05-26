@@ -113,6 +113,7 @@ def build_darknet(force: bool = False) -> str:
     volumes={VOL: volume},
     secrets=[modal.Secret.from_name("roboflow")],
     timeout=1800,
+    retries=modal.Retries(max_retries=5, backoff_coefficient=2.0, initial_delay=10.0),
 )
 def prepare_dataset(force: bool = False) -> dict:
     from roboflow import Roboflow
