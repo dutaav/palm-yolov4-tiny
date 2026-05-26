@@ -1,6 +1,6 @@
 # Modal Training
 
-YOLOv4-tiny training pipeline running on Modal (B200 GPU), uploading results to HuggingFace Hub.
+YOLOv4-tiny training pipeline running on Modal (L4 GPU for training and evaluation, CPU for build and upload steps), uploading results to HuggingFace Hub.
 
 ## Setup (one-time)
 
@@ -45,11 +45,11 @@ cd modal_training
 modal run app.py
 ```
 
-Estimated time on the configured GPUs (L4 for training, T4 for GA fitness and evaluation):
+Estimated time on the configured GPUs (L4 for all stages):
 - Build darknet: ~5 minutes (one-time)
 - Dataset download: ~3 minutes (one-time)
 - Model 1 + Model 2 (parallel on L4): ~60-90 minutes
-- GA (5 generations x 10 parallel evaluations on T4): ~30-50 minutes
+- GA (5 generations x 10 parallel evaluations on L4): ~25-40 minutes
 - Model 3 + Model 4 (parallel on L4): ~60-90 minutes
 - Evaluation + upload: ~5 minutes
 
