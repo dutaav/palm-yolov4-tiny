@@ -17,6 +17,11 @@ image = (
         "nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04",
         add_python="3.11",
     )
+    .env({"DEBIAN_FRONTEND": "noninteractive", "TZ": "Etc/UTC"})
+    .run_commands(
+        "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime",
+        "echo $TZ > /etc/timezone",
+    )
     .apt_install(
         "git", "wget", "build-essential",
         "libopencv-dev", "python3-opencv",
