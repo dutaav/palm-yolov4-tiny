@@ -9,7 +9,8 @@ from typing import Iterator
 _RE_ITER = re.compile(r"^\s*(\d+):")
 _RE_LOSS = re.compile(r"(\d+\.\d+)\s+avg")
 _RE_MAP = re.compile(
-    r"(?:mean_average_precision\s*\(mAP@0\.50\)|mAP@0\.50)\s*=\s*([\d.]+)"
+    r"mean\s+average\s+precision\s*\(mAP@0\.50\)\s*=\s*([\d.]+)",
+    re.IGNORECASE,
 )
 _RE_TP = re.compile(r"TP\s*=\s*(\d+)")
 _RE_FP = re.compile(r"FP\s*=\s*(\d+)")
