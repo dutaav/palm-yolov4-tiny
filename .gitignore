@@ -20,3 +20,5 @@ Thumbs.db
 *.weights
 backup/
 run_artifacts/
+palm_yolov4_results/
+palm_yolov4_results.zip
