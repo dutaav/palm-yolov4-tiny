@@ -12,8 +12,7 @@ yolov4-tiny-hpo-ffb-maturity/
 ├── modal_training/              training pipeline (Modal H100)
 │   ├── app.py                   4 models + GA + HF upload
 │   ├── darknet_utils.py         cfg/log/eval parsers
-│   ├── ga.py                    Genetic Algorithm
-│   └── README.md
+│   └── ga.py                    Genetic Algorithm
 │
 ├── colab_inference/             one-click reproducibility notebook
 │   ├── build_notebook.py        generator
@@ -30,13 +29,13 @@ yolov4-tiny-hpo-ffb-maturity/
 ### 1. Train on Modal
 
 ```bash
-cd modal_training
 pip install modal
 modal setup
+cd modal_training
 modal run app.py
 ```
 
-See `modal_training/README.md` for secret setup.
+Requires two Modal secrets (`roboflow` with `ROBOFLOW_API_KEY`, `huggingface` with `HF_TOKEN` write-access) created at https://modal.com/secrets.
 
 ### 2. Inference on Colab
 
